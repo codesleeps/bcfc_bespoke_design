@@ -146,145 +146,15 @@
   }
   .btn-secondary:hover { color: var(--blue-mid); border-color: var(--blue-mid); }
  
-  /* Hero artwork mockup */
-  .hero-artwork {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .artwork-frame {
-    width: 320px;
-    height: 400px;
-    background: var(--navy);
-    border-radius: 3px;
-    padding: 24px;
-    position: relative;
+/* HERO IMAGE */
+  .hero-artwork img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
     box-shadow: 0 40px 80px rgba(13,45,94,0.25), 0 8px 24px rgba(13,45,94,0.15);
   }
-  .artwork-inner {
-    width: 100%;
-    height: 100%;
-    background: #e8e4dc;
-    border-radius: 2px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .artwork-texture {
-    position: absolute;
-    inset: 0;
-    background-image: repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 2px,
-      rgba(255,255,255,0.03) 2px,
-      rgba(255,255,255,0.03) 4px
-    );
-  }
-  .artwork-crest {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-  }
-  .crest-banner {
-    background: var(--navy);
-    color: var(--white);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 6px 20px;
-    border-radius: 2px;
-    margin-bottom: 8px;
-    display: block;
-  }
-  .crest-globe {
-    width: 80px;
-    height: 80px;
-    background: var(--navy);
-    border-radius: 50%;
-    margin: 0 auto 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .crest-globe svg { opacity: 0.4; }
-  .crest-banner2 {
-    background: var(--navy);
-    color: var(--white);
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 5px 16px;
-    margin-bottom: 8px;
-    display: block;
-  }
-  .crest-ball {
-    width: 60px;
-    height: 60px;
-    border: 3px solid var(--navy);
-    border-radius: 50%;
-    margin: 0 auto 8px;
-    position: relative;
-    overflow: hidden;
-  }
-  .crest-ball::before {
-    content: '';
-    position: absolute;
-    top: 50%; left: -5px; right: -5px;
-    height: 2px;
-    background: var(--navy);
-    transform: rotate(-15deg);
-  }
-  .crest-ball::after {
-    content: '';
-    position: absolute;
-    left: 50%; top: -5px; bottom: -5px;
-    width: 2px;
-    background: var(--navy);
-    transform: rotate(15deg);
-  }
-  .crest-year {
-    background: var(--navy);
-    color: var(--white);
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    padding: 5px 18px;
-    display: block;
-  }
-  .frame-label {
-    position: absolute;
-    bottom: -36px;
-    left: 0; right: 0;
-    text-align: center;
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.08em;
-  }
-  .metallic-badge {
-    position: absolute;
-    top: -12px;
-    right: -12px;
-    width: 56px;
-    height: 56px;
-    background: var(--gold);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 9px;
-    font-weight: 500;
-    color: var(--white);
-    letter-spacing: 0.05em;
-    line-height: 1.3;
-  }
- 
+  
   /* SECTION BASE */
   section { padding: 80px 2rem; }
   .container { max-width: 1100px; margin: 0 auto; }
@@ -645,30 +515,7 @@ footer strong { color: rgba(255,255,255,0.8); font-weight: 500; }
         </div>
       </div>
       <div class="hero-artwork">
-        <div style="position:relative; display:inline-block;">
-          <div class="artwork-frame">
-            <div class="artwork-inner">
-              <div class="artwork-texture"></div>
-              <div class="artwork-crest">
-                <span class="crest-banner">Birmingham City</span>
-                <div class="crest-globe">
-                  <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-                    <circle cx="22" cy="22" r="18" stroke="white" stroke-width="1.5" fill="none"/>
-                    <ellipse cx="22" cy="22" rx="8" ry="18" stroke="white" stroke-width="1.5" fill="none"/>
-                    <line x1="4" y1="22" x2="40" y2="22" stroke="white" stroke-width="1.5"/>
-                    <line x1="6" y1="14" x2="38" y2="14" stroke="white" stroke-width="1"/>
-                    <line x1="6" y1="30" x2="38" y2="30" stroke="white" stroke-width="1"/>
-                  </svg>
-                </div>
-                <span class="crest-banner2">Football Club</span>
-                <div class="crest-ball"></div>
-                <span class="crest-year">· 1875 ·</span>
-              </div>
-            </div>
-          </div>
-          <div class="metallic-badge">Metal<br>leaf</div>
-          <p class="frame-label">Venetian-plastered frame</p>
-        </div>
+        <img src="WhatsApp_Image_2026-06-09_at_17.20.03-removebg-preview.png" alt="Venetian wall art">
       </div>
     </div>
   </div>
