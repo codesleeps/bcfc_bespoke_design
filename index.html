@@ -42,7 +42,7 @@
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
-    z-index: 100;
+    z-index: 1000;
     background: rgba(3, 10, 22, 0.82);
     backdrop-filter: blur(12px);
     border-bottom: 0.5px solid var(--border);
@@ -262,6 +262,7 @@
     display: inline-block;
     transform-style: preserve-3d;
     transition: transform 0.1s ease-out;
+    padding: 12px 12px 50px 12px;
   }
   .artwork-frame {
     width: 320px;
@@ -756,7 +757,7 @@
   .breakdown-table td:first-child { color: var(--muted); }
   .breakdown-table td:last-child { text-align: right; font-weight: 600; color: var(--ink); }
   .breakdown-table tr.subtotal td { color: var(--muted); font-size: 13px; border-top: 0.5px solid var(--border); padding-top: 14px; }
-  .breakdown-table tr.total td { font-size: 16px; font-weight: 600; color: var(--gold); border-top: 1.5px solid var(--gold); padding-top: 16px; }
+  .breakdown-table tr.total td { font-size: 16px; font-weight: 600; color: var(--gold); border-top: 1.5px solid var(--border-gold); padding-top: 16px; }
   .breakdown-note {
     background: var(--gold-light);
     border-left: 3px solid var(--gold);
@@ -922,7 +923,7 @@
     background: transparent;
     border: none;
     cursor: pointer;
-    z-index: 110;
+    z-index: 1001;
     padding: 4px;
     align-items: center;
     justify-content: center;
@@ -949,7 +950,7 @@
     inset: 0;
     background: rgba(3, 10, 22, 0.75);
     backdrop-filter: blur(8px);
-    z-index: 105;
+    z-index: 1002;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
@@ -967,7 +968,7 @@
     height: 100vh;
     background: var(--navy);
     border-left: 1px solid var(--border);
-    z-index: 108;
+    z-index: 1003;
     padding: 80px 2rem 2rem;
     transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     display: flex;
@@ -1035,11 +1036,16 @@
     .breakdown-inner { grid-template-columns: 1fr; gap: 40px; }
     section { padding: 60px 1.25rem; }
     .pricing-grid { grid-template-columns: 1fr 1fr; }
+    .sizes-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .sizes-grid { grid-template-columns: repeat(3, 1fr); }
   }
   @media (max-width: 480px) {
     .pricing-grid { grid-template-columns: 1fr; }
     .calculator-tabs { gap: 6px; }
     .calc-tab { padding: 8px 16px; font-size: 11px; }
+    .sizes-grid { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
 </head>
@@ -1165,7 +1171,7 @@
           <div class="step-num">4</div>
           <div class="step-content">
             <p class="step-title">Metal leaf application</p>
-            <p class="step-desc">Blue-coloured metal leaf is laid over the crest with sizing adhesive — giving a luminous, light-shifting metallic finish.</p>
+            <p class="step-desc"><span id="processLeafLabel">Blue</span>-coloured metal leaf is laid over the crest with sizing adhesive — giving a luminous, light-shifting metallic finish.</p>
           </div>
         </div>
         <div class="process-step">
@@ -1430,10 +1436,10 @@
     <h2 class="section-title">Ready to create something<br><em style="font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--blue-mid);">truly one of a kind?</em></h2>
     <p class="section-body" style="text-align:center;">Whether you're looking for a single framed statement piece or a full mural installation, get in touch to discuss your project. Every commission begins with a conversation.</p>
     <div class="cta-actions">
-      <a href="mailto:hello@example.com" class="btn-primary">Send an enquiry</a>
-      <a href="tel:+441234567890" class="btn-secondary">Call to discuss</a>
+      <a href="mailto:hello@bcfcbespoke.co.uk" class="btn-primary">Send an enquiry</a>
+      <a href="tel:+441****7890" class="btn-secondary">Call to discuss</a>
     </div>
-    <p class="contact-line">Or email directly: <a href="mailto:hello@example.com">hello@example.com</a></p>
+    <p class="contact-line">Or email directly: <a href="mailto:hello@bcfcbespoke.co.uk">hello@bcfcbespoke.co.uk</a></p>
   </div>
 </section>
  
@@ -1481,6 +1487,7 @@
     const artworkTexture = document.getElementById('artworkTexture');
     const artworkBadge = document.getElementById('artworkBadge');
     const artworkFrameLabel = document.getElementById('artworkFrameLabel');
+    const processLeafLabel = document.getElementById('processLeafLabel');
 
     const leafColorMap = {
       blue: '#005eff',
@@ -1494,6 +1501,13 @@
       gold: 'hue-rotate(200deg) saturate(1.4) brightness(1.05)',
       copper: 'hue-rotate(155deg) saturate(1.5) brightness(0.95)',
       silver: 'saturate(0.2) brightness(1.35)'
+    };
+
+    const leafNameMap = {
+      blue: 'Blue',
+      gold: 'Gold',
+      copper: 'Copper',
+      silver: 'Silver'
     };
 
     const badgeLabelMap = {
@@ -1523,6 +1537,7 @@
           document.documentElement.style.setProperty('--leaf-color', colorHex);
           artworkFrame.style.filter = leafFilterMap[val];
           artworkBadge.innerHTML = badgeLabelMap[val];
+          if (processLeafLabel) processLeafLabel.textContent = leafNameMap[val];
         } else if (type === 'texture') {
           artworkTexture.className = `artwork-texture texture-${val}`;
           if (val === 'marmorino') artworkTexture.style.opacity = '0.35';
