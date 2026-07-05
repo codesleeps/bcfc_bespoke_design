@@ -1269,45 +1269,35 @@
     padding-top: 100%; /* 1:1 Aspect Ratio */
     background: #030a16;
     overflow: hidden;
+    perspective: 800px;
   }
   .video-preview-wrapper img {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     object-fit: cover;
     transition: transform 0.5s;
+    animation: plasterTilt 6s ease-in-out infinite alternate;
+    transform-style: preserve-3d;
   }
-  .showcase-card:hover .video-preview-wrapper img {
-    transform: scale(1.05);
-  }
-  .play-overlay {
+  .glare-effect {
     position: absolute;
     inset: 0;
-    background: rgba(3, 10, 22, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.22) 50%, rgba(255, 255, 255, 0) 70%);
+    background-size: 200% 200%;
+    background-position: -150% -150%;
+    z-index: 3;
+    pointer-events: none;
+    display: block;
+    animation: plasterGlare 6s ease-in-out infinite alternate;
   }
-  .showcase-card:hover .play-overlay {
-    background: rgba(3, 10, 22, 0.2);
+  
+  @keyframes plasterTilt {
+    0% { transform: scale(1.04) rotateY(-4deg) rotateX(2deg); }
+    100% { transform: scale(1.04) rotateY(4deg) rotateX(-2deg); }
   }
-  .play-btn-circle {
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    color: var(--navy-deep);
-    font-size: 18px;
-    transition: transform 0.3s, background-color 0.3s;
-  }
-  .showcase-card:hover .play-btn-circle {
-    transform: scale(1.1);
-    background: var(--gold);
-    color: #030a16;
+  @keyframes plasterGlare {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
   }
   
   .showcase-info {
@@ -1417,7 +1407,7 @@
   </ul>
   <div style="display: flex; align-items: center; gap: 15px;">
     <div class="nav-socials">
-      <a href="https://wa.me/447000000000" target="_blank" title="WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
+      <a href="https://wa.me/447908677945" target="_blank" title="WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
       <a href="https://instagram.com/bcfc_bespoke" target="_blank" title="Instagram"><i class="ti ti-brand-instagram"></i></a>
       <a href="https://facebook.com/bcfc_bespoke" target="_blank" title="Facebook"><i class="ti ti-brand-facebook"></i></a>
     </div>
@@ -1442,7 +1432,7 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="mobile-socials">
-    <a href="https://wa.me/447000000000" target="_blank" title="WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
+    <a href="https://wa.me/447908677945" target="_blank" title="WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
     <a href="https://instagram.com/bcfc_bespoke" target="_blank" title="Instagram"><i class="ti ti-brand-instagram"></i></a>
     <a href="https://facebook.com/bcfc_bespoke" target="_blank" title="Facebook"><i class="ti ti-brand-facebook"></i></a>
   </div>
@@ -1605,10 +1595,8 @@
       <!-- Card 1 -->
       <div class="showcase-card">
         <div class="video-preview-wrapper">
-          <img src="file:///Users/user/.gemini/antigravity-ide/brain/d025a9d3-4eaa-487e-8359-3b389ee12006/showcase_gold_leaf_1783123500300.png" alt="Gold Leaf Plaster Detail">
-          <div class="play-overlay">
-            <div class="play-btn-circle"><i class="ti ti-player-play"></i></div>
-          </div>
+          <img src="file:///Users/user/.gemini/antigravity-ide/brain/1f264648-1336-4c36-b1a0-b3715260a36c/gold_leaf_detail_1783212815355.png" alt="Gold Leaf Plaster Detail">
+          <div class="glare-effect"></div>
         </div>
         <div class="showcase-info">
           <div>
@@ -1625,10 +1613,8 @@
       <!-- Card 2 -->
       <div class="showcase-card">
         <div class="video-preview-wrapper">
-          <img src="file:///Users/user/.gemini/antigravity-ide/brain/d025a9d3-4eaa-487e-8359-3b389ee12006/showcase_blue_mural_1783123511948.png" alt="Executive Boardroom Blue Plaster Mural">
-          <div class="play-overlay">
-            <div class="play-btn-circle"><i class="ti ti-player-play"></i></div>
-          </div>
+          <img src="file:///Users/user/.gemini/antigravity-ide/brain/1f264648-1336-4c36-b1a0-b3715260a36c/blue_plaster_mural_1783212828280.png" alt="Executive Boardroom Blue Plaster Mural">
+          <div class="glare-effect"></div>
         </div>
         <div class="showcase-info">
           <div>
@@ -1645,10 +1631,8 @@
       <!-- Card 3 -->
       <div class="showcase-card">
         <div class="video-preview-wrapper">
-          <img src="file:///Users/user/.gemini/antigravity-ide/brain/d025a9d3-4eaa-487e-8359-3b389ee12006/showcase_copper_frame_1783123522053.png" alt="Copper Leaf Ash Panel">
-          <div class="play-overlay">
-            <div class="play-btn-circle"><i class="ti ti-player-play"></i></div>
-          </div>
+          <img src="file:///Users/user/.gemini/antigravity-ide/brain/1f264648-1336-4c36-b1a0-b3715260a36c/copper_burnished_panel_1783212837895.png" alt="Copper Leaf Ash Panel">
+          <div class="glare-effect"></div>
         </div>
         <div class="showcase-info">
           <div>
@@ -1927,7 +1911,7 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-socials">
-      <a href="https://wa.me/447000000000" target="_blank" title="WhatsApp" aria-label="WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
+      <a href="https://wa.me/447908677945" target="_blank" title="WhatsApp" aria-label="WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
       <a href="https://instagram.com/bcfc_bespoke" target="_blank" title="Instagram" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
       <a href="https://facebook.com/bcfc_bespoke" target="_blank" title="Facebook" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
     </div>
@@ -2228,7 +2212,7 @@
                      `*Project Vision:* ${message}`;
 
         // Opens WhatsApp chat
-        const whatsappUrl = `https://wa.me/447000000000?text=${encodeURIComponent(text)}`;
+        const whatsappUrl = `https://wa.me/447908677945?text=${encodeURIComponent(text)}`;
         window.open(whatsappUrl, '_blank');
       });
     }
@@ -2361,9 +2345,7 @@
             newCard.innerHTML = `
               <div class="video-preview-wrapper">
                 <img src="${imgSrc}" alt="${title}">
-                <div class="play-overlay">
-                  <div class="play-btn-circle"><i class="ti ti-player-play"></i></div>
-                </div>
+                <div class="glare-effect"></div>
               </div>
               <div class="showcase-info">
                 <div>
@@ -2402,6 +2384,8 @@
         runStep();
       });
     }
+
+    // Video play logic removed. Cards loop dynamically by default.
 
     // Fade-in scroll observer
     const fadeObserver = new IntersectionObserver((entries) => {
